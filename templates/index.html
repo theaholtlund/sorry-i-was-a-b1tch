@@ -31,10 +31,36 @@
     <div id="surprise" style="display: none">
       <p>🌸🌺🌼 You're sexy and the best and I appreciate you a lot! 🌼🌺🌸</p>
     </div>
+    <img
+      src="{{ url_for('static', filename='sorry-man.gif') }}"
+      alt="Sorry man"
+      class="floating-image"
+      id="sorry-man"
+    />
+    <img
+      src="{{ url_for('static', filename='sorry-woman.gif') }}"
+      alt="Sorry woman"
+      class="floating-image"
+      id="sorry-woman"
+    />
     <script>
       function showSurprise() {
         document.getElementById("surprise").style.display = "block";
       }
+
+      function randomPosition(element) {
+        const x = Math.floor(Math.random() * window.innerWidth);
+        const y = Math.floor(Math.random() * window.innerHeight);
+        element.style.left = x + "px";
+        element.style.top = y + "px";
+      }
+
+      window.onload = function () {
+        const img1 = document.getElementById("sorry-man");
+        const img2 = document.getElementById("sorry-woman");
+        randomPosition(img1);
+        randomPosition(img2);
+      };
     </script>
   </body>
 </html>
