@@ -5,6 +5,7 @@ body {
   color: #333;
   text-align: center;
   padding: 50px;
+  overflow: hidden;
 }
 
 /* Styling for container holding the content */
@@ -14,7 +15,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: inline-block;
   padding: 20px;
-  max-width: 400px;
+  max-width: 600px;
   margin: auto;
 }
 
@@ -34,7 +35,32 @@ button {
   border-radius: 5px;
 }
 
-/* Styling for button with surprise content on hover */
+/* Styling for the button when hovered over */
 button:hover {
   background-color: #ff1493;
+}
+
+/* Styling for the sorry cat gif */
+.sorry-cat {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+/* Styling for floating images */
+.floating-image {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  animation: spin 5s linear infinite;
+}
+
+/* Animation for spinning */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
