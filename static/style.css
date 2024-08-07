@@ -1,3 +1,4 @@
+/* Styling for body of the page */
 body {
   font-family: Arial, sans-serif;
   background-color: #ffe1ed;
@@ -6,6 +7,7 @@ body {
   padding: 50px;
 }
 
+/* Styling for container holding the content */
 .container {
   background-color: #fff;
   border-radius: 10px;
@@ -16,10 +18,12 @@ body {
   margin: auto;
 }
 
+/* Styling for main heading */
 h1 {
   color: #ff69b4;
 }
 
+/* Styling for button with surprise content */
 button {
   background-color: #ff69b4;
   color: white;
@@ -30,6 +34,7 @@ button {
   border-radius: 5px;
 }
 
+/* Styling for button with surprise content on hover */
 button:hover {
   background-color: #ff1493;
 }
