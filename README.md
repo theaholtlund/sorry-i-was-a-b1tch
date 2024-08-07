@@ -1,6 +1,6 @@
-# Sorry I was a B\*tch
+# Hey, sorry I was a b\*tch
 
-A wee little web application to apologise for not-the-greatest behaviour. The app provides a simple and interactive interface to convey the apology.
+Looks like someone is sorry they were such a b\*tch today... A wee little web application to apologise for not-the-greatest behaviour. The app provides a simple and interactive interface to convey the apology.
 
 ## Installation
 
