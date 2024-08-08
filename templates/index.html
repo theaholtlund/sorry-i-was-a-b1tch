@@ -10,24 +10,27 @@
     />
   </head>
   <body>
-    <div class="container">
-      <h1>I'm sorry I was such a b*tch...</h1>
-      <p>Hey there!</p>
-      <p>
-        I'm really sorry for my behaviour earlier. I know I was a bit of a
-        b*tch, and I hope you can forgive me. It will maybe (probably) happen
-        again, but sorry still.
-      </p>
-      <br />
-      <img
-        src="{{ url_for('static', filename='sorry-cat.gif') }}"
-        alt="Sorry cat"
-        class="sorry-cat"
-      />
-      <br />
-      <br />
-      <button onclick="showSurprise()">CLICK HERE FOR A SURPRISE</button>
+    <div class="outer-container">
+      <div class="container">
+        <h1>I'm sorry I was such a b*tch...</h1>
+        <p>Hey there!</p>
+        <p>
+          I'm really sorry for my behaviour earlier. I know I was a bit of a
+          b*tch, and I hope you can forgive me. It will maybe (probably) happen
+          again, but sorry still.
+        </p>
+        <br />
+        <img
+          src="{{ url_for('static', filename='sorry-cat.gif') }}"
+          alt="Sorry cat"
+          class="sorry-cat"
+        />
+        <br />
+        <br />
+        <button onclick="showSurprise()">CLICK HERE FOR A SURPRISE</button>
+      </div>
     </div>
+
     <div id="surprise" style="display: none">
       <p>🌸🌺🌼 You're sexy and the best and I appreciate you a lot! 🌼🌺🌸</p>
     </div>
@@ -43,14 +46,28 @@
       class="floating-image"
       id="sorry-woman"
     />
+
     <script>
       function showSurprise() {
         document.getElementById("surprise").style.display = "block";
       }
 
       function randomPosition(element) {
-        const x = Math.floor(Math.random() * window.innerWidth);
-        const y = Math.floor(Math.random() * window.innerHeight);
+        const container = document.querySelector(".outer-container");
+        const containerRect = container.getBoundingClientRect();
+
+        let x, y;
+
+        do {
+          x = Math.floor(Math.random() * window.innerWidth);
+          y = Math.floor(Math.random() * window.innerHeight);
+        } while (
+          x > containerRect.left &&
+          x < containerRect.right - 100 &&
+          y > containerRect.top &&
+          y < containerRect.bottom - 100
+        );
+
         element.style.left = x + "px";
         element.style.top = y + "px";
       }

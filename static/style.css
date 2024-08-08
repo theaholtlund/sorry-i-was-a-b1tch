@@ -8,7 +8,13 @@ body {
   overflow: hidden;
 }
 
-/* Styling for container holding the content */
+/* Styling for outer container */
+.outer-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Styling for inner container holding the content */
 .container {
   background-color: #fff;
   border-radius: 10px;
@@ -53,6 +59,7 @@ button:hover {
   width: 100px;
   height: 100px;
   animation: spin 5s linear infinite;
+  z-index: 0;
 }
 
 /* Animation for spinning */
