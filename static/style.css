@@ -11,7 +11,6 @@ body {
 /* Styling for outer container */
 .outer-container {
   position: relative;
-  z-index: 1;
 }
 
 /* Styling for inner container holding the content */
@@ -23,6 +22,8 @@ body {
   padding: 20px;
   max-width: 600px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* Styling for main heading */
@@ -59,7 +60,7 @@ button:hover {
   width: 100px;
   height: 100px;
   animation: spin 5s linear infinite;
-  z-index: 0;
+  z-index: 10;
 }
 
 /* Animation for spinning */

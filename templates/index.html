@@ -55,17 +55,21 @@
       function randomPosition(element) {
         const container = document.querySelector(".outer-container");
         const containerRect = container.getBoundingClientRect();
+        const imageSize = 100;
+
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
 
         let x, y;
 
         do {
-          x = Math.floor(Math.random() * window.innerWidth);
-          y = Math.floor(Math.random() * window.innerHeight);
+          x = Math.floor(Math.random() * (viewportWidth - imageSize));
+          y = Math.floor(Math.random() * (viewportHeight - imageSize));
         } while (
-          x > containerRect.left &&
-          x < containerRect.right - 100 &&
-          y > containerRect.top &&
-          y < containerRect.bottom - 100
+          x + imageSize > containerRect.left &&
+          x < containerRect.right &&
+          y + imageSize > containerRect.top &&
+          y < containerRect.bottom
         );
 
         element.style.left = x + "px";
