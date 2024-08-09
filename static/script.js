@@ -3,7 +3,7 @@ function showSurprise() {
   document.getElementById("surprise").style.display = "block";
 }
 
-// Function to position an element randomly on the screen, avoiding overlap with a container
+// Function to position an element randomly on the screen, avoid overlap with main container
 function randomPosition(element) {
   const container = document.querySelector(".outer-container");
   const containerRect = container.getBoundingClientRect();
@@ -15,11 +15,11 @@ function randomPosition(element) {
   let x, y;
 
   do {
-    // Generate random x and y coordinates within the viewport, ensuring the element stays within bounds
+    // Generate random coordinates within viewport to ensure element stay within bounds
     x = Math.floor(Math.random() * (viewportWidth - imageSize));
     y = Math.floor(Math.random() * (viewportHeight - imageSize));
   } while (
-    // Check if the element overlaps with the container, and retry if it does
+    // Check if element overlaps with the container and retry if it does
     x + imageSize > containerRect.left &&
     x < containerRect.right &&
     y + imageSize > containerRect.top &&
