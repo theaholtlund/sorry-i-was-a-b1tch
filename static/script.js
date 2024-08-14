@@ -1,6 +1,15 @@
 // Function to make the surprise element visible
 function showSurprise() {
   document.getElementById("surprise").style.display = "block";
+
+  // Update the apology message after the button is clicked
+  const apologyText = document.getElementById("apology-text");
+  apologyText.innerText = "But I promise to make it up to you! 💖";
+
+  // Change the button text and style to indicate something happened
+  const button = document.querySelector("button");
+  button.innerText = "SURPRISE UNLOCKED!";
+  button.style.backgroundColor = "#ff1493";
 }
 
 // Function to position an element randomly on the screen, avoid overlap with main container
