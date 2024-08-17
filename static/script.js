@@ -12,11 +12,11 @@ function showSurprise() {
   button.innerText = "SURPRISE UNLOCKED!";
   button.style.backgroundColor = "#ff1493";
 
-  // Reposition images to avoid overlap with the surprise text
+  // Reposition images to avoid overlap with text
   repositionImages();
 }
 
-// Function to reposition images to avoid overlap with the surprise text
+// Function to reposition images to avoid overlap with text
 function repositionImages() {
   const img1 = document.getElementById("sorry-man");
   const img2 = document.getElementById("sorry-woman");
@@ -26,7 +26,7 @@ function repositionImages() {
   randomPosition(img2);
 }
 
-// Function to position an element randomly on the screen, avoid overlap with main container and surprise text
+// Function to position an element randomly on the screen, avoid overlap with container and text
 function randomPosition(element) {
   const container = document.querySelector(".outer-container");
   const containerRect = container.getBoundingClientRect();
@@ -45,11 +45,11 @@ function randomPosition(element) {
   let x, y;
 
   do {
-    // Generate random coordinates within viewport to ensure element stays within bounds
+    // Generate random coordinates within viewport
     x = Math.floor(Math.random() * (viewportWidth - imageSize));
     y = Math.floor(Math.random() * (viewportHeight - imageSize));
   } while (
-    // Check if element overlaps with the container, surprise text or apology text and retry if it does
+    // Check if element overlaps with the container or text and retry if it does
     (x + imageSize > containerRect.left &&
       x < containerRect.right &&
       y + imageSize > containerRect.top &&
