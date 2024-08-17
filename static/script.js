@@ -35,6 +35,13 @@ function randomPosition(element) {
   const viewportWidth = window.innerWidth;
   const viewportHeight = window.innerHeight;
 
+  const apologyRect = document
+    .getElementById("apology-container")
+    .getBoundingClientRect();
+  const surpriseRect = document
+    .getElementById("surprise")
+    .getBoundingClientRect();
+
   let x, y;
 
   do {
