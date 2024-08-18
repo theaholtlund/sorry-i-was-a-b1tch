@@ -13,14 +13,18 @@ function showSurprise() {
 
 // Function to reposition images randomly on the screen
 function repositionImages() {
-  const images = ["sorry-man", "sorry-woman"].map((id) =>
-    document.getElementById(id)
-  );
-  images.forEach(randomPosition);
+  const img1 = document.getElementById("sorry-man");
+  const img2 = document.getElementById("sorry-woman");
+
+  // Position the first image
+  randomPosition(img1);
+
+  // Position the second image, ensuring it doesn't overlap with the first
+  randomPosition(img2, img1);
 }
 
-// Function to randomly position an image while avoiding overlap with text and container
-function randomPosition(element) {
+// Function to randomly position an image while avoiding overlap with text and another elements
+function randomPosition(element, otherElement = null) {
   const imageSize = 100;
   const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
 
@@ -40,10 +44,14 @@ function randomPosition(element) {
     const surpriseRect = document
       .getElementById("surprise")
       .getBoundingClientRect();
+    const otherRect = otherElement
+      ? otherElement.getBoundingClientRect()
+      : null;
 
-    return ![containerRect, apologyRect, surpriseRect].some((rect) =>
-      isOverlapping(x, y, rect)
-    );
+    const overlappingRects = [containerRect, apologyRect, surpriseRect];
+    if (otherRect) overlappingRects.push(otherRect);
+
+    return !overlappingRects.some((rect) => isOverlapping(x, y, rect));
   };
 
   let x, y;
