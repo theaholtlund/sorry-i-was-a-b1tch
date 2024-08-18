@@ -1,4 +1,4 @@
-// Function to show the surprise and update the UI
+// Function to show the surprise and update the interface
 function showSurprise() {
   document.getElementById("surprise").style.display = "block";
   document.getElementById("apology-text").innerText =
@@ -19,11 +19,11 @@ function repositionImages() {
   // Position the first image
   randomPosition(img1);
 
-  // Position the second image, ensuring it doesn't overlap with the first
+  // Position the second image, ensuring it does not overlap with the first
   randomPosition(img2, img1);
 }
 
-// Function to randomly position an image while avoiding overlap with text and another elements
+// Function to randomly position an image while avoiding overlap with elements
 function randomPosition(element, otherElement = null) {
   const imageSize = 100;
   const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
@@ -51,7 +51,13 @@ function randomPosition(element, otherElement = null) {
     const overlappingRects = [containerRect, apologyRect, surpriseRect];
     if (otherRect) overlappingRects.push(otherRect);
 
-    return !overlappingRects.some((rect) => isOverlapping(x, y, rect));
+    return (
+      x >= 0 &&
+      y >= 0 &&
+      x + imageSize <= viewportWidth &&
+      y + imageSize <= viewportHeight &&
+      !overlappingRects.some((rect) => isOverlapping(x, y, rect))
+    );
   };
 
   let x, y;
