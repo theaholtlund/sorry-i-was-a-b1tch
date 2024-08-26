@@ -18,7 +18,7 @@ function repositionImages() {
     document.getElementById("sorry-woman"),
   ];
   const containers = [
-    document.querySelector(".outer-container").getBoundingClientRect(),
+    document.getElementById("apology-container").getBoundingClientRect(),
     document.getElementById("surprise").getBoundingClientRect(),
   ];
 
