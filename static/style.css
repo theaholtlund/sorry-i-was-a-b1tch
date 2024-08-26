@@ -8,11 +8,6 @@ body {
   overflow: hidden;
 }
 
-/* Styling for outer container */
-.outer-container {
-  position: relative;
-}
-
 /* Styling for inner container holding the content */
 .container {
   background-color: #fff;
