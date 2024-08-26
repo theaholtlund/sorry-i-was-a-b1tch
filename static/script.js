@@ -13,61 +13,76 @@ function showSurprise() {
 
 // Function to reposition images randomly on the screen
 function repositionImages() {
-  const img1 = document.getElementById("sorry-man");
-  const img2 = document.getElementById("sorry-woman");
+  const images = [
+    document.getElementById("sorry-man"),
+    document.getElementById("sorry-woman"),
+  ];
+  const containers = [
+    document.querySelector(".outer-container").getBoundingClientRect(),
+    document.getElementById("surprise").getBoundingClientRect(),
+  ];
 
-  // Position the first image
-  randomPosition(img1);
+  images.forEach((img, index) => {
+    let position;
+    do {
+      position = getRandomPosition(img);
+    } while (
+      !isValidPosition(position, img, containers, images.slice(0, index))
+    );
 
-  // Position the second image, ensuring it does not overlap with the first
-  randomPosition(img2, img1);
+    img.style.left = `${position.x}px`;
+    img.style.top = `${position.y}px`;
+  });
 }
 
-// Function to randomly position an image while avoiding overlap with elements
-function randomPosition(element, otherElement = null) {
-  const imageSize = 100;
-  const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
-
-  const isOverlapping = (x, y, rect) =>
-    x + imageSize > rect.left &&
-    x < rect.right &&
-    y + imageSize > rect.top &&
-    y < rect.bottom;
-
-  const isValidPosition = (x, y) => {
-    const containerRect = document
-      .querySelector(".outer-container")
-      .getBoundingClientRect();
-    const apologyRect = document
-      .getElementById("apology-container")
-      .getBoundingClientRect();
-    const surpriseRect = document
-      .getElementById("surprise")
-      .getBoundingClientRect();
-    const otherRect = otherElement
-      ? otherElement.getBoundingClientRect()
-      : null;
-
-    const overlappingRects = [containerRect, apologyRect, surpriseRect];
-    if (otherRect) overlappingRects.push(otherRect);
-
-    return (
-      x >= 0 &&
-      y >= 0 &&
-      x + imageSize <= viewportWidth &&
-      y + imageSize <= viewportHeight &&
-      !overlappingRects.some((rect) => isOverlapping(x, y, rect))
-    );
+// Function to get a random position within the viewport
+function getRandomPosition(element) {
+  const { innerWidth: vw, innerHeight: vh } = window;
+  const size = 100;
+  return {
+    x: Math.random() * (vw - size),
+    y: Math.random() * (vh - size),
   };
+}
 
-  let x, y;
-  do {
-    x = Math.random() * (viewportWidth - imageSize);
-    y = Math.random() * (viewportHeight - imageSize);
-  } while (!isValidPosition(x, y));
+// Function to check if a position is valid
+function isValidPosition({ x, y }, element, containers, otherImages) {
+  const size = 100;
+  const rect = { left: x, top: y, right: x + size, bottom: y + size };
 
-  element.style.left = `${x}px`;
-  element.style.top = `${y}px`;
+  // Check if element is within viewport bounds
+  if (
+    x < 0 ||
+    y < 0 ||
+    rect.right > window.innerWidth ||
+    rect.bottom > window.innerHeight
+  ) {
+    return false;
+  }
+
+  // Check if element overlaps with any container
+  if (containers.some((container) => isOverlapping(rect, container))) {
+    return false;
+  }
+
+  // Check if element overlaps with any other image
+  if (
+    otherImages.some((img) => isOverlapping(rect, img.getBoundingClientRect()))
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
+// Function to check if two rectangles overlap
+function isOverlapping(rect1, rect2) {
+  return !(
+    rect1.right < rect2.left ||
+    rect1.left > rect2.right ||
+    rect1.bottom < rect2.top ||
+    rect1.top > rect2.bottom
+  );
 }
 
 // Position images randomly when the page loads
