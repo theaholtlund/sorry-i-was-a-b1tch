@@ -11,29 +11,28 @@
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
   </head>
   <body>
-    <div class="outer-container">
-      <div class="container" id="apology-container">
-        <h1>I'm sorry I was such a b*tch...</h1>
-        <p id="apology-text">Hey there!</p>
-        <p>
-          I'm really sorry for my behaviour earlier. I know I was a bit of a
-          b*tch, and I hope you can forgive me. It will maybe (probably) happen
-          again, but sorry still.
-        </p>
-        <br />
-        <img
-          src="{{ url_for('static', filename='sorry-cat.gif') }}"
-          alt="Sorry cat"
-          class="sorry-cat"
-        />
-        <br />
-        <br />
-        <button onclick="showSurprise()">CLICK HERE FOR A SURPRISE</button>
+    <div class="container" id="apology-container">
+      <h1>I'm sorry I was such a b*tch...</h1>
+      <p id="apology-text">Hey there!</p>
+      <p>
+        I'm really sorry for my behaviour earlier. I know I was a bit of a
+        b*tch, and I hope you can forgive me. It will maybe (probably) happen
+        again, but sorry still.
+      </p>
+      <br />
+      <img
+        src="{{ url_for('static', filename='sorry-cat.gif') }}"
+        alt="Sorry cat"
+        class="sorry-cat"
+      />
+      <br />
+      <br />
+      <button onclick="showSurprise()">CLICK HERE FOR A SURPRISE</button>
+      <div id="surprise" style="display: none">
+        <p>🌸🌺🌼 You're hot and the best and I appreciate you a lot! 🌼🌺🌸</p>
       </div>
     </div>
-    <div id="surprise" style="display: none">
-      <p>🌸🌺🌼 You're hot and the best and I appreciate you a lot! 🌼🌺🌸</p>
-    </div>
+
     <img
       src="{{ url_for('static', filename='sorry-man.gif') }}"
       alt="Sorry man"
