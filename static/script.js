@@ -85,5 +85,28 @@ function isOverlapping(rect1, rect2) {
   );
 }
 
+// Generate a random compliment
+function generateCompliment() {
+  const compliments = [
+    "You're amazing!",
+    "You're a true friend.",
+    "You have a great sense of humor!",
+    "You light up the room.",
+    "Your positivity is contagious!",
+    "You're an inspiration to everyone around you.",
+    "You bring out the best in other people.",
+    "You're a fantastic listener.",
+    "Your creativity knows no bounds!",
+    "You're someone who always makes a difference.",
+  ];
+
+  // Get a random compliment from the array
+  const randomCompliment =
+    compliments[Math.floor(Math.random() * compliments.length)];
+
+  // Display the compliment in the compliment container
+  document.getElementById("compliment-container").innerText = randomCompliment;
+}
+
 // Position images randomly when the page loads
 window.onload = repositionImages;
