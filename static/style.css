@@ -18,7 +18,6 @@ body {
   max-width: 600px;
   margin: auto;
   position: relative;
-  z-index: 1;
 }
 
 /* Styling for main heading */
