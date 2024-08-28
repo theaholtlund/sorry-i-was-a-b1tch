@@ -4,9 +4,9 @@ function showSurprise() {
   document.getElementById("apology-text").innerText =
     "But I promise to make it up to you! 💖";
 
-  const button = document.querySelector("button");
-  button.innerText = "SURPRISE UNLOCKED!";
-  button.style.backgroundColor = "#ff1493";
+  const surpriseButton = document.getElementById("surprise-button");
+  surpriseButton.innerText = "SURPRISE UNLOCKED!";
+  surpriseButton.style.backgroundColor = "#ff1493";
 
   repositionImages();
 }
