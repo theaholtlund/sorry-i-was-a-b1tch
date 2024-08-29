@@ -27,19 +27,19 @@
       />
 
       <br />
-      <button id="compliment-button" onclick="generateCompliment()">
+      <button
+        id="compliment-button"
+        onclick="generateCompliment(); showCompliment();"
+      >
         GET A RANDOM COMPLIMENT
       </button>
-      <div
-        id="compliment-container"
-        style="margin-top: 20px; font-size: 1.2em"
-      ></div>
+      <div id="compliment-container" class="surprise-text"></div>
 
       <br />
       <button id="surprise-button" onclick="showSurprise()">
         CLICK HERE FOR A SURPRISE
       </button>
-      <div id="surprise" style="display: none">
+      <div id="surprise" class="surprise-text" style="display: none">
         <p>🌸🌺🌼 You're hot and the best and I appreciate you a lot! 🌼🌺🌸</p>
       </div>
     </div>
