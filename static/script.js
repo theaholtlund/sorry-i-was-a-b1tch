@@ -7,12 +7,17 @@ function showSurprise() {
   const surpriseButton = document.getElementById("surprise-button");
   surpriseButton.innerText = "SURPRISE UNLOCKED!";
   surpriseButton.style.backgroundColor = "#ff1493";
+}
 
-  repositionImages();
+// Function to show the compliment and update the button
+function showCompliment() {
+  const complimentButton = document.getElementById("compliment-button");
+  complimentButton.innerText = "GET ANOTHER ONE!";
+  complimentButton.style.backgroundColor = "#ff1493";
 }
 
 // Function to reposition images at set locations
-function repositionImages() {
+function setImages() {
   const container = document.getElementById("apology-container");
   const h1 = container.querySelector("h1");
   const containerRect = container.getBoundingClientRect();
@@ -57,4 +62,4 @@ function generateCompliment() {
 }
 
 // Position images randomly when the page loads
-window.onload = repositionImages;
+window.onload = setImages();
