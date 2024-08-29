@@ -25,6 +25,13 @@ h1 {
   color: #ff69b4;
 }
 
+/* Styling for compliment and surprise text */
+.surprise-text {
+  font-family: "Arial", sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
 /* Styling for button with surprise content */
 button {
   background-color: #ff69b4;
