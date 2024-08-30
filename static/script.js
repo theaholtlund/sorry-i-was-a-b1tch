@@ -1,3 +1,29 @@
+// Function to fetch compliments from the JSON file
+async function fetchCompliments() {
+  const response = await fetch(COMPLIMENTS_URL);
+  const compliments = await response.json();
+  return compliments;
+}
+
+// Function to generate a random compliment
+async function generateCompliment() {
+  const compliments = await fetchCompliments();
+
+  // Get a random compliment from the fetched array
+  const randomCompliment =
+    compliments[Math.floor(Math.random() * compliments.length)];
+
+  // Display the compliment in the compliment container
+  document.getElementById("compliment-container").innerText = randomCompliment;
+}
+
+// Function to show the compliment and update the button
+function showCompliment() {
+  const complimentButton = document.getElementById("compliment-button");
+  complimentButton.innerText = "GET ANOTHER ONE!";
+  complimentButton.style.backgroundColor = "#ff1493";
+}
+
 // Function to show the surprise and update the interface
 function showSurprise() {
   document.getElementById("surprise").style.display = "block";
@@ -7,13 +33,6 @@ function showSurprise() {
   const surpriseButton = document.getElementById("surprise-button");
   surpriseButton.innerText = "SURPRISE UNLOCKED!";
   surpriseButton.style.backgroundColor = "#ff1493";
-}
-
-// Function to show the compliment and update the button
-function showCompliment() {
-  const complimentButton = document.getElementById("compliment-button");
-  complimentButton.innerText = "GET ANOTHER ONE!";
-  complimentButton.style.backgroundColor = "#ff1493";
 }
 
 // Function to reposition images at set locations
@@ -38,28 +57,5 @@ function setImages() {
   document.getElementById("sorry-woman").style.top = `${h1Height}px`;
 }
 
-// Generate a random compliment
-function generateCompliment() {
-  const compliments = [
-    "You're amazing!",
-    "You're a true friend.",
-    "You have a great sense of humor!",
-    "You light up the room.",
-    "Your positivity is contagious!",
-    "You're an inspiration to everyone around you.",
-    "You bring out the best in other people.",
-    "You're a fantastic listener.",
-    "Your creativity knows no bounds!",
-    "You're someone who always makes a difference.",
-  ];
-
-  // Get a random compliment from the array
-  const randomCompliment =
-    compliments[Math.floor(Math.random() * compliments.length)];
-
-  // Display the compliment in the compliment container
-  document.getElementById("compliment-container").innerText = randomCompliment;
-}
-
 // Position images randomly when the page loads
-window.onload = setImages();
+window.onload = setImages;

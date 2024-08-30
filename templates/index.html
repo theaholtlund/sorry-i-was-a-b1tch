@@ -9,7 +9,11 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
 
-    <!-- Link to external JavaScript file, loaded with 'defer' to run after HTML parsing -->
+    <!-- Link to external JavaScript file, loaded with defer to run after HTML parsing -->
+    <script>
+      const COMPLIMENTS_URL =
+        "{{ url_for('static', filename='compliments.json') }}";
+    </script>
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
   </head>
 
