@@ -57,5 +57,13 @@ function setImages() {
   document.getElementById("sorry-woman").style.top = `${h1Height}px`;
 }
 
+// Initial forgiveness counter logic
+function incrementForgiveness() {
+  forgivenessCount++;
+  document.getElementById("forgiveness-number").innerText = forgivenessCount;
+  document.getElementById("forgive-button").innerText =
+    "You chose forgiveness!";
+}
+
 // Position images randomly when the page loads
 window.onload = setImages;
