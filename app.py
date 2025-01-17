@@ -9,6 +9,6 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-# Check if the script is run directly, and not imported as a module
+# Run main functionality
 if __name__ == '__main__':
     app.run(debug=True)
