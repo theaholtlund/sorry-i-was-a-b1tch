@@ -28,7 +28,7 @@ function showCompliment() {
 function showSurprise() {
   document.getElementById("surprise").style.display = "block";
   document.getElementById("apology-text").innerText =
-    "But I promise to make it up to you! 💖";
+    "... but I promise to make it up to you! 💖";
 
   const surpriseButton = document.getElementById("surprise-button");
   surpriseButton.innerText = "SURPRISE UNLOCKED!";
