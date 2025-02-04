@@ -1,6 +1,6 @@
-# Hey, sorry I was a b\*tch
+# On Demand Apology App
 
-Looks like someone is sorry they were such a b\*tch today... A wee little web application to apologise for not-the-greatest behaviour. The app provides a simple and interactive interface to convey the apology.
+A wee little web application to apologise for not-the-greatest behaviour. Happens to the best of us. The app provides a simple and interactive interface to convey the apology.
 
 ## Installation
 
